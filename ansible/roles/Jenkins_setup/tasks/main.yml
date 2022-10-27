@@ -1,0 +1,19 @@
+- name: Install a list of packages
+  apt:
+    pkg:
+    - npm
+    - nodejs
+    - python3-pip
+    - openjdk-17-jdk
+
+- name: Install bottle python package
+  pip:
+    name: python-jenkins
+
+- name: Create a jenkins job using basic authentication
+  community.general.jenkins_job:
+    config: "{{ lookup('file', 'templates/config.xml') }}"
+    name: ITEA paper build Pipeline Ansible
+    password: "{{ jenkins_password.user_input }}"
+    url: 'http://{{ ansible_host }}:8080'
+    user: "{{ jenkins_username.user_input }}"

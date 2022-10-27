@@ -1,0 +1,35 @@
+<flow-definition plugin="workflow-job@1239.v71b_b_a_124a_725">
+<actions>
+<org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@2.2114.v2654ca_721309"/>
+<org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@2.2114.v2654ca_721309">
+<jobProperties/>
+<triggers/>
+<parameters/>
+<options/>
+</org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+</actions>
+<description>This is a pipeline project for NodeJS project build.</description>
+<keepDependencies>false</keepDependencies>
+<properties>
+<com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.35.0">
+<projectUrl>https://github.com/DarciaIV/vue-paper-dashboard/</projectUrl>
+<displayName/>
+</com.coravy.hudson.plugins.github.GithubProjectProperty>
+<org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+<triggers>
+<hudson.triggers.SCMTrigger>
+<spec>*/15 * * * *</spec>
+<ignorePostCommitHooks>false</ignorePostCommitHooks>
+</hudson.triggers.SCMTrigger>
+</triggers>
+</org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+</properties>
+<definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2802.v5ea_628154b_c2">
+  <script>pipeline { agent any 
+    stages { 
+    stage('Cloning our GIT') { steps { git url: 'https://github.com/DarciaIV/vue-paper-dashboard' } } stage('Pre-build preparations') { steps { sh 'npm install' } } stage('Build app') { steps { sh 'npm run build' } } } } </script>
+<sandbox>true</sandbox>
+</definition>
+<triggers/>
+<disabled>false</disabled>
+</flow-definition>

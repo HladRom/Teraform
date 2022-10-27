@@ -1,0 +1,26 @@
+- hosts: ALL
+  user: ohud
+  become: true
+  become_method: sudo
+  gather_facts: no
+  tasks:
+  - include_role:
+      name: Jenkins_install
+
+  - name: Pause untill initial config is done
+    pause:
+      prompt: Please enter the username you have set in Jenkins
+    register: jenkins_username
+    #minutes: 5
+
+  - debug:
+      msg: "{{ jenkins_username }}"
+
+  - pause: 
+      prompt: Please enter the password you have set in Jenkins
+      echo: no
+    register: jenkins_password
+    no_log: true
+
+  - include_role:
+      name: Jenkins_setup

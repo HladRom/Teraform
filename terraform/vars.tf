@@ -3,12 +3,12 @@ variable "ec2_ami" {
   type = map
 
   default = {
-    eu-central-1 = "ami-06148e0e81e5187c8"
+    us-east-1 = "ami-053b0d53c279acc90"
   }
 }
 
 variable "region" {
-  default = "eu-central-1"
+  default = "us-east-1"
 }
 
 variable "instance_type" {    

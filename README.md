@@ -21,4 +21,5 @@ provider "aws" {
     secret_key = "   "
 }
 ```
+
 ![tera](https://boxboat.com/2020/02/04/writing-a-custom-terraform-provider/featured.png)

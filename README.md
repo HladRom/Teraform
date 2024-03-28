@@ -10,7 +10,6 @@ To accomplish this task, we use Terraform for automating the creation of infrast
 ## Conclusion:
 Utilizing Terraform for infrastructure creation and Ansible for configuration management is a powerful approach to automate deployment and management of infrastructure. This approach enables quick and repeatable infrastructure deployment, reducing the risk of errors and increasing development and management efficiency.
 
-
 ```python
 Code:
 

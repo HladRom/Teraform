@@ -1,6 +1,5 @@
 # TASK :star:
 
-
 To accomplish this task, we use Terraform for automating the creation of infrastructure as code (IAC) and Ansible for configuration management and deployment.
 ## Install Terraform Create IAC automation that would do the following: 
 - a) Creates security group with following rules: Inbound rules, open ports 22 and 8080, Outbound rules: Full control.
